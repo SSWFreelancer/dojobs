@@ -1,0 +1,52 @@
+@import "@/assets/style/base/variables.sass"
+
+.distance-card
+    border-radius: 4px
+    color: $white
+    display: flex
+    flex-direction: column
+    text-align: center
+    gap: 10px
+    padding-top: 16px
+    &__count
+        font-size: 28px
+        font-weight: 700
+    &__title
+        font-size: 18px
+    &__percent        
+        height: 80px
+        position: relative
+        & span
+            cursor: pointer
+            border-top: 1px solid $white
+            position: absolute
+            display: block
+            transition: all 0.3s ease 0s
+            width: 100%
+            bottom: 0
+            display: flex
+            flex-direction: column
+            align-items: center
+            justify-content: center
+            background: linear-gradient(to bottom, rgba(255,255,255,0.6), rgba(255,255,255,0.2))
+            .wrapper.dark &
+                border-top-color: $black
+                background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2))
+            & b
+                transition: all 0.3s ease 0s
+                pointer-events:none
+                opacity:0
+                visibility:hidden
+            &:hover b
+                pointer-events:auto
+                opacity:1
+                visibility:visible
+            
+    &.green
+        background: $green
+    &.yellow
+        background: $yellow
+    &.purple
+        background: $purple
+    &.blue
+        background: $blue

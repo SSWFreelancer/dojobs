@@ -1,0 +1,80 @@
+@import "@/assets/style/base/variables.sass"
+.home
+    display: flex
+    flex-direction: column
+    gap: 16px
+.grid
+    display: grid
+    gap: 16px
+    grid-template-columns: 1fr 1fr
+    @media(max-width: 1023px) 
+        grid-template-columns: 1fr
+.distances
+    display: grid
+    gap: 16px
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr))    
+    @media(max-width: 500px) 
+        grid-template-columns: 1fr    
+.cards
+    display: grid
+    gap: 16px
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
+    @media(max-width: 500px) 
+        grid-template-columns: 1fr
+    
+.item
+    padding: 12px
+    background: $white
+    border-radius: 4px
+    display: flex
+    flex-direction: column
+    gap: 10px
+    &__sbtw
+        flex: 1 1 auto
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        gap: 10px
+    .wrapper.dark &
+        background: $lightblack
+    &__name
+        display: flex
+        flex-direction: column
+        gap: 5px
+        font-size: 14px
+        & li
+            list-style: disc
+            margin-left: 1.5rem
+            &.green
+                color: $green
+            &.yellow
+                color: $yellow       
+            &.purple
+                color: $purple            
+    &__percent
+        display: flex
+        flex-direction: column
+        gap: 5px          
+    &__progress
+        height: 3px
+        border-radius: 8px
+        overflow: hidden
+        display: block
+        width: 100%
+        background: $bluelight
+        position: relative
+        & p
+            position: absolute
+            left: 0
+            top: 0
+            height: 100%
+            width: 100%
+            border-radius: 8px
+            display: flex
+            & span
+                &.green
+                    background: $green
+                &.yellow
+                    background: $yellow       
+                &.purple
+                    background: $purple

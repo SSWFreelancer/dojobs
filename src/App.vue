@@ -1,32 +1,20 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+  <div class="wrapper" :class="this.$store.getters.isDarkMode ? 'dark' : ''">
+      <Aside />
+      <main>
+        <router-view />
+      </main>
+    </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import Aside from '@/components/Aside/Aside.vue';
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+@Component({
+  components: {
+    Aside
   }
-}
-</style>
+})
+export default class App extends Vue {}
+</script>

@@ -1,0 +1,56 @@
+@import "@/assets/style/base/variables.sass"
+
+.card
+    display: flex
+    flex-direction: column
+    gap: 5px
+    &__icon
+        margin-bottom: 5px
+        width: 40px
+        height: 40px
+        border-radius: 4px
+        background: $bluelight
+        display: flex
+        justify-content: center
+        align-items: center
+        &.green
+            color: $green
+        &.yellow
+            color: $yellow
+        &.purple
+            color: $purple
+    &__count
+        font-size: 28px
+        font-weight: 700
+    &__title
+        font-size: 16px
+    &__percent
+        display: flex
+        flex-direction: column
+        gap: 5px
+        &.green
+            color: $green
+            & p span
+                background: $green
+        &.yellow
+            color: $yellow
+            & p span
+                background: $yellow            
+        &.purple
+            color: $purple
+            & p span
+                background: $purple              
+        & p
+            height: 3px
+            border-radius: 8px
+            overflow: hidden
+            display: block
+            width: 100%
+            background: $bluelight
+            position: relative
+            & span
+                position: absolute
+                left: 0
+                top: 0
+                height: 100%
+                border-radius: 8px

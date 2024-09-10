@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+import UserView from '../views/UserView.vue'
+import SettingsView from '@/views/SettingsView.vue'
+import Message1 from '../views/Message1.vue'
+import Message2 from '../views/Message2.vue'
 Vue.use(VueRouter)
-
 const routes: Array<RouteConfig> = [
   {
     path: '/',
@@ -11,13 +13,25 @@ const routes: Array<RouteConfig> = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/user',
+    name: 'user',
+    component: UserView
+  },  
+  {
+    path: '/settings',
+    name: 'settings',
+    component: SettingsView
+  },  
+  {
+    path: '/message1',
+    name: 'message1',
+    component: Message1
+  },
+  {
+    path: '/message2',
+    name: 'message2',
+    component: Message2
+  },     
 ]
 
 const router = new VueRouter({

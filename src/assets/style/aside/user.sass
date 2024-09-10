@@ -1,0 +1,47 @@
+@import "../base/variables.sass"
+
+.user
+    display: flex
+    align-items: center
+    gap: 10px
+    font-size: 14px
+    line-height: 1
+    position: relative
+    z-index: 8
+    @media(max-width: 1023px) 
+        margin-left: auto
+    
+    &__right
+        display: flex
+        flex-direction: column
+        gap: 4px
+        @media(max-width: 1023px) 
+            display: none
+    &__name
+        font-weight: 700
+    &__mail
+        font-size: 12px
+        color: $purple
+    &__image
+        display: flex
+        justify-content: center
+        align-items: center
+        border-radius: 50%
+        width: 35px
+        flex:0 0 35px
+        color: $black
+        height: 35px
+        background: $bluelight
+        @media(max-width: 1023px) 
+            color: $purple
+            background: $white
+        & img
+            width:100%
+            height:100%
+            object-fit:cover
+    @media(min-width: 1024px)
+        .aside.hide &
+            justify-content: center
+            &__right
+                display: none
+    
