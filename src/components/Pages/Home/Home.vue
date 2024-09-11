@@ -31,7 +31,7 @@
     <div class="grid">
       <div class="item">
         <div class="distances">
-          <DistanceCard v-for="distance in distances" :key="distance.id" :distance="distance"/>
+          <DistanceCard v-for="distance in distance" :key="distance.id" :distance="distance"/>
         </div>
       </div>
       <div class="item">
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="grid">
-      <div class="item" v-for="graph in graphs" :key="graph.id">
+      <div class="item" v-for="graph in graph" :key="graph.id">
         <p class="item__title">Statistic Graph</p>
         <Graph :graph="graph"/>
       </div>
@@ -49,11 +49,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import statsData from "@/mixins/stats/stats.js";
-import distanceData from "@/mixins/distance/distance.js";
-import seriesData from "@/mixins/series/series.js";
-import graphsData from "@/mixins/graph/graph.js";
+import { Component, Mixins } from "vue-property-decorator";
+import HomeInterface from "@/mixins/HomeInterface";
 import Card from "./Card.vue";
 import DistanceCard from "./Distance.vue";
 import Series from "./Series.vue";
@@ -66,12 +63,9 @@ import Graph from "./Graph.vue";
     Graph
   }
 })
-export default class Home extends Vue {
-  stats = statsData.data().stats;
-  distances = distanceData.data().distance;
-  series = seriesData.data().series;
-  graphs = graphsData.data().graph;
-
+export default class Home extends Mixins(
+  HomeInterface,
+) {
   get totalPercent() {
     return this.stats.reduce((sum, stat) => sum + stat.percent, 0);
   }
