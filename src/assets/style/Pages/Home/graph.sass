@@ -1,0 +1,40 @@
+@import "@/assets/style/base/variables.sass"
+
+.graph
+    margin-top: 10px
+    display: flex
+    flex-direction: column
+    gap: 16px
+    &__content
+        font-size: 20px
+        & img
+            display: block
+            margin: 0 auto
+            max-width: 100%
+            height: 200px
+            object-fit: cover
+    &__nav
+        display: flex
+        gap: 24px
+        font-size: 20px
+        font-weight: 700
+        border-bottom: 1px solid $bluelight
+        & p
+            padding-bottom: 4px
+            cursor: pointer
+            position: relative
+            transition: all 0.3s ease 0s
+            &::after
+                content:''
+                width: 0
+                left: 50%
+                position: absolute
+                bottom: -1px
+                height: 2px
+                background: $purple
+                transition: all 0.3s ease 0s
+            &.active
+                color: $purple
+                &::after
+                    width: 100%
+                    left: 0
