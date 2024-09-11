@@ -1,11 +1,11 @@
 <template>
-    <div class="distance-card" :class="color">
-        <div class="distance-card__count">{{ count }}</div>
+    <div class="distance-card" :class="distance.color">
+        <div class="distance-card__count">{{ distance.count }}</div>
         <div class="distance-card__title">Total Distance</div>
         <div class="distance-card__percent">
-            <span :style="'height:' + percent + '%'">
+            <span :style="'height:' + distance.percent + '%'">
                 <b>
-                    {{ percent }}%
+                    {{ distance.percent }}%
                 </b>
             </span>
         </div>
@@ -17,9 +17,7 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 
 @Component
 export default class DistanceCard extends Vue {
-    @Prop ({ required: true }) count!: number;
-    @Prop ({ required: true }) percent!: number;
-    @Prop ({required: true}) color!: string;
+    @Prop ({ required: true }) distance!: any;
 }
 </script>
 

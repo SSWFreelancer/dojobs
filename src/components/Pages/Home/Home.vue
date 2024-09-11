@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="cards">
-      <Card class="item" v-for="stat in stats" :key="stat.id" :icon="stat.icon" :name="stat.name" :count="stat.count" :percent="stat.percent" :color="stat.color"/>
+      <Card class="item" v-for="stat in stats" :key="stat.id" :stat="stat"/>
       <div class="item">
         <div class="item__sbtw">
           <ul class="item__name">
@@ -31,8 +31,12 @@
     <div class="grid">
       <div class="item">
         <div class="distances">
-          <DistanceCard v-for="distance in distances" :key="distance.id" :count="distance.count" :percent="distance.percent" :color="distance.color"/>
+          <DistanceCard v-for="distance in distances" :key="distance.id" :distance="distance"/>
         </div>
+      </div>
+      <div class="item">
+        <p class="item__title">Job Details</p>
+        <Series :series="series"/>  
       </div>
 
     </div>
@@ -44,17 +48,21 @@
 import { Component, Vue } from "vue-property-decorator";
 import statsData from "@/mixins/stats/stats.js";
 import distanceData from "@/mixins/distance/distance.js";
+import seriesData from "@/mixins/series/series.js";
 import Card from "./Card.vue";
 import DistanceCard from "./Distance.vue";
+import Series from "./Series.vue";
 @Component({
   components: {
     Card,
-    DistanceCard
+    DistanceCard,
+    Series
   }
 })
 export default class Home extends Vue {
   stats = statsData.data().stats;
   distances = distanceData.data().distance;
+  series = seriesData.data().series;
   get totalPercent() {
     return this.stats.reduce((sum, stat) => sum + stat.percent, 0);
   }
