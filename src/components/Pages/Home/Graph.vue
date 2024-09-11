@@ -29,7 +29,6 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 @Component
 export default class Graph extends Vue {
     @Prop () graph!: any
-
     tabs = [
         { label: "All Statistic" },
         { label: "All Chart" },
